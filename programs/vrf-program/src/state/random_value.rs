@@ -6,8 +6,8 @@ use anchor_lang::prelude::*;
 /// if at least 1 whitelist PDA exists total, then all deposit attempts will start getting checked
 #[repr(C)]
 #[account]
+
 pub struct RandomValue {
-    pub hash: PubKey,
     pub min: u64,
     pub max: u64,
     pub result: u64,
