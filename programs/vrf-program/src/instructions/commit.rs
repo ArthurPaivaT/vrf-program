@@ -13,11 +13,36 @@ pub struct Commit<'info> {
 }
 
 pub fn handler(ctx: Context<Commit>, min: u64, max: u64) -> Result<()> {
-    let random_value = &mut ctx.accounts.random_value;
-    random_value.processed = false;
-    random_value.result = 0;
-    random_value.min = min;
-    random_value.max = max;
+    {
+        let random_value = &mut ctx.accounts.random_value;
+        random_value.processed = false;
+        random_value.result = 0;
+        random_value.min = min;
+        random_value.max = max;
+    }
+
+    msg!(
+        "account is {}",
+        ctx.accounts
+            .random_value
+            .to_account_info()
+            .key()
+            .to_string()
+    );
+
+    msg!(
+        "user is {}",
+        ctx.accounts.user.to_account_info().key().to_string()
+    );
+
+    msg!(
+        "system is {}",
+        ctx.accounts
+            .system_program
+            .to_account_info()
+            .key()
+            .to_string()
+    );
 
     Ok(())
 }
