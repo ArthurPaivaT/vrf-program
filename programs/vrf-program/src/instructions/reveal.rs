@@ -4,11 +4,11 @@ use std::str::FromStr;
 
 use crate::state::random_value;
 
-pub const REVEALER: &str = "2xhBxVVuXkdq2MRKerE9mr2s1szfHSedy21MVqf8gPoM";
+pub const REVEALER: &str = "8L9kkeGCa8vN3BrsfSgHkukk1TQNvWHvn5gRxWBJTzEt";
 
 #[derive(Accounts)]
 pub struct Reveal<'info> {
-    #[account()]
+    #[account(mut)]
     pub random_value: Account<'info, random_value::RandomValue>,
     #[account(mut, address = Pubkey::from_str(REVEALER).unwrap())]
     pub revealer: Signer<'info>,
@@ -16,9 +16,18 @@ pub struct Reveal<'info> {
 }
 
 pub fn handler(ctx: Context<Reveal>, result: u64) -> Result<()> {
-    let random_value = &mut ctx.accounts.random_value;
-    random_value.processed = true;
-    random_value.result = result;
+    msg!("Entered {}", result);
+
+    ctx.accounts.random_value.processed = true;
+    ctx.accounts.random_value.result = result;
+
+    msg!("key {}", ctx.accounts.random_value.key());
+
+    msg!(
+        "rv is {}, {}",
+        ctx.accounts.random_value.processed,
+        ctx.accounts.random_value.result
+    );
 
     Ok(())
 }
