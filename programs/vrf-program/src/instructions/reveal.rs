@@ -15,7 +15,7 @@ pub struct Reveal<'info> {
     pub system_program: Program<'info, System>,
 }
 
-pub fn handler(ctx: Context<Reveal>, result: u64) -> Result<()> {
+pub fn handler(ctx: Context<Reveal>, result: u32) -> Result<()> {
     msg!("Entered {}", result);
 
     ctx.accounts.random_value.processed = true;

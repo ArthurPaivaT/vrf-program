@@ -16,11 +16,11 @@ pub mod vrf_program {
         Ok(())
     }
 
-    pub fn commit(ctx: Context<Commit>, min: u64, max: u64) -> Result<()> {
+    pub fn commit(ctx: Context<Commit>, min: u32, max: u32) -> Result<()> {
         instructions::commit::handler(ctx, min, max)
     }
 
-    pub fn reveal(ctx: Context<Reveal>, result: u64) -> Result<()> {
+    pub fn reveal(ctx: Context<Reveal>, result: u32) -> Result<()> {
         instructions::reveal::handler(ctx, result)
     }
 }
