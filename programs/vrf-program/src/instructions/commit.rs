@@ -12,7 +12,7 @@ pub struct Commit<'info> {
     pub user: Signer<'info>,
 }
 
-pub fn handler(ctx: Context<Commit>, min: u64, max: u64) -> Result<()> {
+pub fn handler(ctx: Context<Commit>, min: u32, max: u32) -> Result<()> {
     {
         let random_value = &mut ctx.accounts.random_value;
         random_value.processed = false;
