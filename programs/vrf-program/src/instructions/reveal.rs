@@ -24,8 +24,9 @@ pub fn handler(ctx: Context<Reveal>, result: u32) -> Result<()> {
     msg!("key {}", ctx.accounts.random_value.key());
 
     msg!(
-        "rv is {}, {}",
+        "rv is {}, {},{}",
         ctx.accounts.random_value.processed,
+        ctx.accounts.random_value.commits,
         ctx.accounts.random_value.result
     );
 
