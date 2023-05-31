@@ -23,6 +23,10 @@ pub mod vrf_program {
     pub fn reveal(ctx: Context<Reveal>, result: u32) -> Result<()> {
         instructions::reveal::handler(ctx, result)
     }
+
+    pub fn recommit(ctx: Context<Recommit>) -> Result<()> {
+        instructions::recommit::handler(ctx)
+    }
 }
 
 #[derive(Accounts)]
