@@ -1,6 +1,5 @@
 use anchor_lang::prelude::*;
 use anchor_lang::Accounts;
-use std::str::FromStr;
 
 use crate::state::random_value;
 
@@ -13,10 +12,10 @@ pub struct Recommit<'info> {
     pub system_program: Program<'info, System>,
 }
 
-pub fn handler(ctx: Context<Recommit>, result: u32) -> Result<()> {
-    msg!("Entered {}", result);
+pub fn handler(ctx: Context<Recommit>) -> Result<()> {
+    msg!("Recommiting {}");
 
-    if (ctx.accounts.random_value.processed == false) {
+    if ctx.accounts.random_value.processed == false {
         return Err(ErrorCode::NotRevealedYet.into());
     }
 
