@@ -20,6 +20,7 @@ pub fn handler(ctx: Context<Commit>, min: u32, max: u32) -> Result<()> {
         random_value.min = min;
         random_value.max = max;
         random_value.commits = 0;
+        random_value.committer = ctx.accounts.user.key();
     }
 
     msg!(

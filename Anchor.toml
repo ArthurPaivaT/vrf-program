@@ -3,6 +3,7 @@ seeds = false
 skip-lint = false
 [programs.localnet]
 vrf_program = "8xZUNqKPrgs6sQ3YE1dvT5rcmUvBWkGFyCB6UaJinBeG"
+cpi_example = "HmbTLCmaGvZhKnn1Zfa1JVnp7vkMV4DYVxPLWBVoN65L"
 
 [registry]
 url = "https://api.apr.dev"
