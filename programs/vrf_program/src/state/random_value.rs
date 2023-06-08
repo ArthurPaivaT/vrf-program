@@ -9,4 +9,5 @@ pub struct RandomValue {
     pub result: u32,
     pub processed: bool,
     pub commits: u32,
+    pub committer: Pubkey,
 }

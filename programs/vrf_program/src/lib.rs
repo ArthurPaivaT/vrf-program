@@ -30,4 +30,6 @@ pub mod vrf_program {
 }
 
 #[derive(Accounts)]
-pub struct Initialize {}
+pub struct Initialize<'info> {
+    pub system_program: Program<'info, System>,
+}

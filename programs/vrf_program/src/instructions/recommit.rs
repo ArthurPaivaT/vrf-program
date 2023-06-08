@@ -19,6 +19,10 @@ pub fn handler(ctx: Context<Recommit>) -> Result<()> {
         return Err(ErrorCode::NotRevealedYet.into());
     }
 
+    if ctx.accounts.user.key() != ctx.accounts.random_value.committer {
+        return Err(ErrorCode::NotAllowed.into());
+    }
+
     ctx.accounts.random_value.processed = false;
     ctx.accounts.random_value.result = 0;
     ctx.accounts.random_value.commits = ctx.accounts.random_value.commits + 1;
@@ -37,4 +41,7 @@ pub fn handler(ctx: Context<Recommit>) -> Result<()> {
 pub enum ErrorCode {
     #[msg("Random Value not revealed yet")]
     NotRevealedYet,
+
+    #[msg("User is not the original committer")]
+    NotAllowed,
 }
