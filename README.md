@@ -37,6 +37,6 @@ In order to deploy your own version of the vrf_program, you will need to install
 - Run `anchor build` to build one more time with the updated program ID.
 - Run `anchor deploy --provider.cluster devnet` to deploy to devnet
 
-## License 🧾
+## License
 
 MIT
