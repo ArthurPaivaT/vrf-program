@@ -2,14 +2,14 @@
 seeds = false
 skip-lint = false
 [programs.localnet]
-vrf_program = "8xZUNqKPrgs6sQ3YE1dvT5rcmUvBWkGFyCB6UaJinBeG"
-cpi_example = "HmbTLCmaGvZhKnn1Zfa1JVnp7vkMV4DYVxPLWBVoN65L"
+vrf_program = "7dsYrsf7cjdMjZBBVv2DzK17Y2Lh8ie16fe48yG1Sn1t"
+cpi_example = "DnRABooercz9a3NrVHo7qjbJwRwQoJ48cLPmdC7dNYEu"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/Users/arthurtavares/.config/solana/id.json"
 
 [scripts]

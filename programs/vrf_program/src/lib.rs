@@ -4,7 +4,7 @@ use instructions::*;
 pub mod instructions;
 pub mod state;
 
-declare_id!("8xZUNqKPrgs6sQ3YE1dvT5rcmUvBWkGFyCB6UaJinBeG");
+declare_id!("7dsYrsf7cjdMjZBBVv2DzK17Y2Lh8ie16fe48yG1Sn1t");
 
 #[program]
 pub mod vrf_program {
